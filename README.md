@@ -60,7 +60,6 @@ As with analysis conducted for stocks in 2017, reducing compute time is the fina
 ![Figure 2: 2018 All Stocks Analysis](https://github.com/MaureenFromuth/Stock-Analysis/blob/master/VBA_Challenge_2018.png)
 
 
-
 Based of preliminary analysis, there are two stocks that continued to have positive year or year (YoY) growth: ENPH and RUN.  As you can see from the following graphs
 
 ## Summary
