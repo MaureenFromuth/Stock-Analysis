@@ -19,7 +19,7 @@ Using this data, Steve has asked us to review an automated VBA pipeline to analy
 
 ## Results
 
-Using the data that Steve provided and the variable that he asked us to conduct, we can assess positive and negative returns per green energy company for each year.  This will indicate for that year which stocks performed well and which ones did not.  Using the results listed below in *Figure 1: 2017 All Stock Analysis* the following stocks performed positively for 2017, in descending order of overall return:
+Using the data that Steve provided and the variable that he asked us to conduct, we can assess positive and negative returns per green energy company for each year.  This will indicate for that year which stocks performed well and which ones did not.  Using the results depicted in *Figure 1: 2017 All Stock Analysis* the following stocks performed positively for 2017, in descending order of overall return:
 
 - DQ
 - SEDG
@@ -35,7 +35,31 @@ Using the data that Steve provided and the variable that he asked us to conduct,
 
 Only one stock did not provide a positive return for 2017: TERP.
 
+Additionally, with reducing performance time an objective for Steve's assignment, our analysis also included run time.  The original code ran in approx .538 to .54 seconds and the refactored code ran in .10 seconds as highlighted in *Figure 1*.
+
 ![Figure 1: 2017 All Stocks Analysis](https://github.com/MaureenFromuth/Stock-Analysis/blob/master/VBA_Challenge_2017.png)
+
+As depicted in *Figure 2: 2018 All Stocks Analysis*, there were only two stocks that maintained positive returns in 2018, listed below in descending order of overall return: 
+- RUN
+- ENPH  
+
+The stock for the remaining companies had a negative return, listed below in descending order of overall return:
+- VSLR
+- TERP
+- AY
+- SEDG
+- CISQ
+- HASI
+- FSLR
+- SPWR
+- JKS
+- DQ 
+
+As with analysis conducted for stocks in 2017, reducing compute time is the final metric we looked at.  The original code provided analysis within approx .53-.56 seconds whereas the refactored code ran in .10 as identified in *Figure 2*.
+
+![Figure 2: 2018 All Stocks Analysis](https://github.com/MaureenFromuth/Stock-Analysis/blob/master/VBA_Challenge_2018.png)
+
+
 
 Based of preliminary analysis, there are two stocks that continued to have positive year or year (YoY) growth: ENPH and RUN.  As you can see from the following graphs
 
