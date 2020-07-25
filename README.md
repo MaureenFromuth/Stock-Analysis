@@ -38,7 +38,7 @@ Only one stock did not provide a positive return for 2017: TERP.
 Additionally, with reducing performance time an objective for Steve's assignment, our analysis also included run time.  The original code ran in approx .538 to .54 seconds and the refactored code ran in .10 seconds as highlighted in *Figure 1*.
 
 ![Figure 1: 2017 All Stocks Analysis](https://github.com/MaureenFromuth/Stock-Analysis/blob/master/VBA_Challenge_2017.png)
-#Figure 1: 2017 All Stock Analysis
+>**Figure 1: 2017 All Stock Analysis**
 
 As depicted in *Figure 2: 2018 All Stocks Analysis*, there were only two stocks that maintained positive returns in 2018, listed below in descending order of overall return: 
 - RUN
@@ -60,9 +60,8 @@ As with analysis conducted for stocks in 2017, reducing compute time is the fina
 
 ![Figure 2: 2018 All Stocks Analysis](https://github.com/MaureenFromuth/Stock-Analysis/blob/master/VBA_Challenge_2018.png)
 
-#Figure 2: 2018 All Stock Analysis
+>**Figure 2: 2018 All Stock Analysis**
 
 Based of preliminary analysis, there are two stocks that continued to have positive year or year (YoY) growth: ENPH and RUN.  As you can see from the following graphs
 
 ## Summary
-
