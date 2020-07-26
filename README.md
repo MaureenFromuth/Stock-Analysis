@@ -25,6 +25,7 @@ tickerEndingPrices(i) / tickerStartingPrices(i) - 1
 *where tickerEndingPrices are the closing prices for the particular stock, tickerStartingPrices are the opening prices for the particular stock, and i is the particular stock*
 ```
 
+**2017 Analysis**
 Using the results depicted in *Figure 1: 2017 All Stock Analysis* the following stocks performed positively for 2017, in descending order of overall return:
 
 - DQ
@@ -46,8 +47,19 @@ Additionally, with reducing performance time an objective for Steve's assignment
 >**Figure 1: 2017 All Stock Analysis**
 ![Figure 1: 2017 All Stocks Analysis](https://github.com/MaureenFromuth/Stock-Analysis/blob/master/VBA_Challenge_2017.png)
 
-Althought not specifically identified in the original analysis, it is also important to highlight the monetary change for each stock in addition to the percentage change.  Below outlines the monetary changes for each ticker:
+Althought not specifically identified in the original analysis, it is also important to highlight the monetary change for each stock in addition to the percentage change.  We included the following formula into VBA in order to create this column.
+```
+Within the header row (#2) we added - 
+Cells(3, 4).Value = "Dollar Change"
 
+Within the return section (#8) we added -
+Cells(4 + i, 4).Value = tickerEndingPrices(i) - tickerStartingPrices(i)
+
+Within the formatting secion (#9) we added - 
+Range("D4:D15").NumberFormat = "$0.00"
+```
+
+Below outlines the monetary changes for each ticker:
 - DQ: $39.95
 - FSLR: $33.98
 - SEDG: $24.35
@@ -63,6 +75,7 @@ Althought not specifically identified in the original analysis, it is also impor
 
 Comparing the monetary change in the return on investment to the percentage return on investment will help us to measure exactly which stocks will yield the most money.  For example, if a stock has a starting price of $1 and increases to $2 by the end of the year, it will have a 200% increase but will only yield one dollar of a net profit.  This is the case for ENPH, who had an increase of 129.5% but only a increase in $1.36.  Looking at those stocks with positive returns, DQ is the top runner in both percentage as well as net dollar increase, and FSLR and SEDG remain consistent with high percentage as well as dollar returns.
 
+**2018 Analysis**
 As depicted in *Figure 2: 2018 All Stocks Analysis*, there were only two stocks that maintained positive returns in 2018, listed below in descending order of overall return: 
 - RUN
 - ENPH  
@@ -100,10 +113,23 @@ Consistent with 2017, we also looked at the change in actual dollar amounts for 
 
 While RUN and ENPH have positive returns for percentages, their overall monetary increase from starting price to ending price for 2018 is relatively small.  Additionally, for those stocks that did have a negative return, VSLR lost the least in both percentage and money for the overall annual return.  The rest of the stocks with negative annual return remained fairly consistent in ranking between percentage and monetary changes.
 
-In additional to analyzing each year independently, it is also important to look at trends.  A good metric for this is to identify year over year (YoY) trends.  Without computing additional analysis, we looked at which stocks had positive returns for both 2017 and 2018.  There were only two: ENPH and RUN.  If you consider stocks that yielded positive annual returns in 2017 and then minimized their losses in 2018, SEDG is the most optimal stock.
+**Year Over Year Trends**
+In additional to analyzing each year independently, it is also important to look at trends.  A good metric for this is to identify year over year (YoY) trends.  Without computing additional analysis, we looked at which stocks had positive returns for both 2017 and 2018.  There were only two: ENPH and RUN.  If you consider stocks that yielded positive annual returns in 2017 and then minimized their losses in 2018, SEDG is the most optimal stock.  
 
-If we, however, look at their overall monetary gain it was $5.28 for RUN and $3.49 for ENPH.  Taking the overall monetary change into account, 
+If we look at overall changes in monetary value for the starting price in 2017 to the closing price in 2018, we will also be able to identify trends in monetary return.  To do so, we took the dollar change for 2017 and added it to the dollar change for 2018. This results in the following return from 2017 to 2018:
+- SEDG: $21.40
+- FSLR: $6.01
+- RUN: $5.28
+- ENPH: $3.49
+- CSIQ: $1.39
+- VSLR: $1.21
+- DQ: $.42
+- AY: $0.20
+- HASI: -$.02
+- TERP: -$1.52
+- SPWR: -$2.42
+- JKS: -$6.75
 
+Using this information, SEDG appears to be the stock with the highest yield over 2017 to 2018.  
 
 ## Summary
-
