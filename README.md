@@ -20,10 +20,10 @@ Using this data, Steve has asked us to review an automated VBA pipeline to analy
 ## Results
 
 Using the data that Steve provided and the variable that he asked us to conduct, we can assess positive and negative returns per green energy company for each year.  This will indicate for that year which stocks performed well and which ones did not.  For this analysis we utilized the following forumla:
-''
+```
 tickerEndingPrices(i) / tickerStartingPrices(i) - 1
 *where tickerEndingPrices are the closing prices for the particular stock, tickerStartingPrices are the opening prices for the particular stock, and i is the particular stock*
-''
+```
 
 Using the results depicted in *Figure 1: 2017 All Stock Analysis* the following stocks performed positively for 2017, in descending order of overall return:
 
