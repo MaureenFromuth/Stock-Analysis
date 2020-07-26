@@ -130,6 +130,85 @@ If we look at overall changes in monetary value for the starting price in 2017 t
 - SPWR: -$2.42
 - JKS: -$6.75
 
-Using this information, SEDG appears to be the stock with the highest yield over 2017 to 2018.  
+Using this information, SEDG appears to be the stock with the highest yield for the two year period of 2017 to 2018.  
 
 ## Summary
+In general, there are several advantages and some disadvantages to refactoring code. The purpose of refactoring code itself is to make the code more efficient and maintainable.  This could include making it faster by consolidating or simplifying the code.  By simplifying code, it could not only make the run time faster but could also make it easier to understand for future developers.  Another advantage of refactoring is that it could include making the code less reliant on external information, if the code references multiple sheets.  Finally, refactoring code also enables additional personnel to review the code and look for any bugs.  There are times, however, when refactoring is not idea.  For example, refactoring can take time and will require additonal resources.  If either of these are limited, refactoring may not be feasible.  
+
+With regards to the original code Steve provided, refactoring did offer the advantage of simplifying and therefore decreasing the run time, as highlighted by the increases identified in the analysis above.  The original code included nested loop to calculate the total volume of trades per stock ticker, as depicted below.  While nested loops are valid techniques within VBA, they do require
+
+```
+For i = 0 To 11
+
+  ticker = tickers(i)
+  totalVolume = 0
+    
+    Worksheets(yearValue).Activate
+    
+    For a = 2 To RowCount
+    
+    	If Cells(a, 2).Value = ticker Then
+        totalVolume = totalVolume + Cells(a, 9).Value
+        End If
+    
+    	If Cells(a - 1, 2).Value <> ticker And Cells(a, 2).Value = ticker Then
+    	startingPrice = Cells(a, 7).Value
+    	End If
+    
+ 	If Cells(a + 1, 2).Value <> ticker And Cells(a, 2).Value = ticker Then
+   	endingPrice = Cells(a, 7).Value
+    	End If
+    
+    Next a
+    
+  Worksheets("All Stocks Analysis").Activate
+  Cells(4 + i, 1).Value = ticker
+  Cells(4 + i, 2).Value = totalVolume
+  Cells(4 + i, 3).Value = endingPrice / startingPrice - 1
+
+Next i
+```
+In refactoring the code, however, you can split these nested loops into two separate ones by creating a stock ticker index and using this as the dependent variable for arrays for total volume as well as starting and ending prices.  
+
+```
+Dim tickerIndex As Single
+tickerIndex = 0
+
+Dim tickerVolumes(12) As Long
+Dim tickerStartingPrices(12) As Single
+Dim tickerEndingPrices(12) As Single
+
+For i = 0 To 11
+  Worksheets("All Stocks Analysis").Activate
+  Cells(4 + i, 1).Value = tickers(i)
+  Cells(4 + i, 2).Value = tickerVolumes(i)
+  Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
+          
+Next i
+```
+
+Within the second, separate, loop, we inserted the ticker index into the calculations and also connected the increased ticker index to a change in the ticker associated with the row.  This is identified in the code below in the third conditional statement.
+
+```
+For i = 2 To RowCount
+  
+   tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 9).Value
+
+   If Cells(i - 1, 2).Value <> tickers(tickerIndex) And Cells(i, 2).Value = tickers(tickerIndex) Then
+      tickerStartingPrices(tickerIndex) = Cells(i, 7).Value
+   End If        
+            
+   If Cells(i + 1, 2).Value <> tickers(tickerIndex) And Cells(i, 2).Value = tickers(tickerIndex) Then
+      tickerEndingPrices(tickerIndex) = Cells(i, 7).Value
+   End If
+
+   If Cells(i + 1, 2).Value <> Cells(i, 2).Value Then
+       tickerIndex = tickerIndex + 1         
+   End If
+
+Next i
+```
+
+By removing the nested loops we are both simplifying our code and also speed it up.  As a result the code will be easier to maintain, easier to understand, and less susceptible to bugs caused by future code changes. 
+
+With regards to disadvantages, it is hard to assess if Steve has any time or resource restrictions, and therefore if there are any immediate disadvantages to refactoring Steve's original code.  If, however, either of these were limited, I would recommend maintaining the original code base as it was not a significant decrease in run time between the original and the refactored code.
